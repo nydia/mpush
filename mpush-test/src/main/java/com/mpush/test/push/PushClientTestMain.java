@@ -68,6 +68,7 @@ public class PushClientTestMain {
                     });
             FutureTask<PushResult> future = sender.send(context);
 
+
             //System.err.println("\n\n" + future.get());
         }
 

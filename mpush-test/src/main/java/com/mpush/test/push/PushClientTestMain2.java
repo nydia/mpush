@@ -61,7 +61,7 @@ public class PushClientTestMain2 {
         }, 1, 1, TimeUnit.SECONDS);
 
         for (int k = 0; k < 1000; k++) {
-            for (int i = 0; i < 1; i++) {
+            for (int i = 1; i < 3; i++) {
 
                 while (service.getQueue().size() > 1000) Thread.sleep(1); // 防止内存溢出
 
