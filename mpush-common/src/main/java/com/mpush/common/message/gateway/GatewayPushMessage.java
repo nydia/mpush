@@ -209,7 +209,7 @@ public final class GatewayPushMessage extends ByteBufMessage implements IPushMes
                 "userId='" + userId + '\'' +
                 ", clientType='" + clientType + '\'' +
                 ", timeout='" + timeout + '\'' +
-                ", content='" + (content == null ? 0 : content.length) + '\'' +
+                ", contentBytes='" + (content == null ? 0 : content.length) + '\'' +
                 '}';
     }
 }

@@ -123,7 +123,7 @@ public final class ConnClientChannelHandler extends ChannelInboundHandlerAdapter
 
                 PushMessage message = new PushMessage(packet, connection);
                 message.decodeBody();
-                LOGGER.info("receive push message, content={}, receivePushNum={}"
+                LOGGER.info("receive push message, contentBytes={}, receivePushNum={}"
                         , new String(message.content, Constants.UTF_8), receivePushNum);
 
                 if (message.needAck()) {

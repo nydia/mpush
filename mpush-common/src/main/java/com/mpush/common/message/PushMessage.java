@@ -64,7 +64,7 @@ public final class PushMessage extends BaseMessage {
 
     @Override
     public void decodeJsonBody(Map<String, Object> body) {
-        String content = (String) body.get("content");
+        String content = (String) body.get("contentBytes");
         if (content != null) {
             this.content = content.getBytes(Constants.UTF_8);
         }
@@ -73,7 +73,7 @@ public final class PushMessage extends BaseMessage {
     @Override
     public Map<String, Object> encodeJsonBody() {
         if (content != null) {
-            return Collections.singletonMap("content", new String(content, Constants.UTF_8));
+            return Collections.singletonMap("contentBytes", new String(content, Constants.UTF_8));
         }
         return null;
     }
@@ -102,7 +102,7 @@ public final class PushMessage extends BaseMessage {
     @Override
     public String toString() {
         return "PushMessage{" +
-                "content='" + content.length + '\'' +
+                "contentBytes='" + content.length + '\'' +
                 ", packet=" + packet +
                 '}';
     }

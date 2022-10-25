@@ -14,7 +14,7 @@ import static io.netty.handler.codec.http.HttpResponseStatus.*;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 /**
- * Outputs index page content.
+ * Outputs index page contentBytes.
  */
 @ChannelHandler.Sharable
 public class WebSocketIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {

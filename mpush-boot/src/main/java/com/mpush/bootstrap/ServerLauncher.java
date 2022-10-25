@@ -67,6 +67,7 @@ public final class ServerLauncher {
                 .setNext(new PushCenterBoot(mPushServer))//9.启动推送中心组件
                 .setNext(() -> new HttpProxyBoot(mPushServer), CC.mp.http.proxy_enabled)//10.启动http代理服务，dns解析服务
                 .setNext(new MonitorBoot(mPushServer))//11.启动监控服务
+                .setNext(new RocketMQBoot())//12.启动RocketMQ服務
                 .end();
     }
 

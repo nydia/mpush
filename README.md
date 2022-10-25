@@ -259,7 +259,7 @@ mp {
         proxy-enabled=false //启用Http代理
         max-conn-per-host=5 //每个域名的最大链接数, 建议web服务nginx超时时间设长一点, 以便保持长链接
         default-read-timeout=10s //请求超时时间
-        max-content-length=5m //response body 最大大小
+        max-contentBytes-length=5m //response body 最大大小
         dns-mapping { //域名映射外网地址转内部IP, 域名部分不包含端口号
             //"mpush.com":["127.0.0.1:8080", "127.0.0.1:8081"]
         }

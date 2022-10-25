@@ -9,26 +9,28 @@ import java.util.List;
  */
 public class BizMessage {
 
-    private List<String> userIds;
+    private List<String> toUserIds;
 
-    public byte[] content;
+    public byte[] contentBytes;
+
+    public String content;
 
     private String messageId;
 
-    public List<String> getUserIds() {
-        return userIds;
+    public List<String> getToUserIds() {
+        return toUserIds;
     }
 
-    public void setUserIds(List<String> userIds) {
-        this.userIds = userIds;
+    public void setToUserIds(List<String> toUserIds) {
+        this.toUserIds = toUserIds;
     }
 
-    public byte[] getContent() {
-        return content;
+    public byte[] getContentBytes() {
+        return contentBytes;
     }
 
-    public void setContent(byte[] content) {
-        this.content = content;
+    public void setContentBytes(byte[] contentBytes) {
+        this.contentBytes = contentBytes;
     }
 
     public String getMessageId() {
@@ -37,5 +39,13 @@ public class BizMessage {
 
     public void setMessageId(String messageId) {
         this.messageId = messageId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

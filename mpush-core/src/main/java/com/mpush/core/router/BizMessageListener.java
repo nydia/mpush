@@ -6,14 +6,11 @@ import com.mpush.api.event.RouterChangeEvent;
 import com.mpush.api.push.*;
 import com.mpush.api.spi.common.Json;
 import com.mpush.api.spi.common.MQClient;
-import com.mpush.api.spi.common.MQClientFactory;
 import com.mpush.api.spi.common.MQMessageReceiver;
 import com.mpush.common.message.BizMessage;
-import com.mpush.core.MPushServer;
 import com.mpush.tools.event.EventConsumer;
 import com.mpush.tools.log.Logs;
 
-import java.util.Arrays;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -21,7 +18,7 @@ import java.util.concurrent.FutureTask;
  *
  * @author nydia_lhq@hotmail.com
  */
-public final class BizMessageListener extends EventConsumer implements MQMessageReceiver {
+public final class BizMessageListener implements MQMessageReceiver {
 
     private MQClient mqClient;
 
@@ -31,10 +28,8 @@ public final class BizMessageListener extends EventConsumer implements MQMessage
         this.topic = topic;
     }
 
-    public BizMessageListener(MPushServer mPushServer) {
-        mqClient = MQClientFactory.create();
-        mqClient.init(mPushServer);
-        mqClient.subscribe(topic, this);
+    public BizMessageListener() {
+
     }
 
     @Subscribe
@@ -49,14 +44,14 @@ public final class BizMessageListener extends EventConsumer implements MQMessage
         PushSender sender = PushSender.create();
         sender.start().join();
 
-        BizMessage bizMessage = Json.JSON.fromJson(message.toString(),BizMessage.class);
-        PushMsg msg = PushMsg.build(MsgType.MESSAGE, new String(bizMessage.getContent()));
+        BizMessage bizMessage = Json.JSON.fromJson(message.toString(), BizMessage.class);
+        PushMsg msg = PushMsg.build(MsgType.MESSAGE, new String(bizMessage.getContentBytes()));
         msg.setMsgId("msgId_" + bizMessage.getMessageId());
 
         PushContext context = PushContext.build(msg)
                 .setAckModel(AckModel.AUTO_ACK)
                 .setBroadcast(false)
-                .setUserIds(bizMessage.getUserIds())
+                .setUserIds(bizMessage.getToUserIds())
                 .setTimeout(2000)
                 .setCallback(new PushCallback() {
                     @Override

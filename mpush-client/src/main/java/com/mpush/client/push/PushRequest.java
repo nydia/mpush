@@ -276,7 +276,7 @@ public final class PushRequest extends FutureTask<PushResult> {
             }
         }
 
-        Objects.requireNonNull(content, "push content can not be null.");
+        Objects.requireNonNull(content, "push contentBytes can not be null.");
 
         return new PushRequest(mPushClient)
                 .setAckModel(ctx.getAckModel())
@@ -343,7 +343,7 @@ public final class PushRequest extends FutureTask<PushResult> {
     @Override
     public String toString() {
         return "PushRequest{" +
-                "content='" + (content == null ? -1 : content.length) + '\'' +
+                "contentBytes='" + (content == null ? -1 : content.length) + '\'' +
                 ", userId='" + userId + '\'' +
                 ", timeout=" + timeout +
                 ", location=" + location +

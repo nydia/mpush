@@ -146,14 +146,14 @@
                 }
 
                 case Command.PUSH: {
-                    config.log.info(">>> receive push, content=" + packet.body.content);
+                    config.log.info(">>> receive push, contentBytes=" + packet.body.contentBytes);
                     let sessionId;
                     if ((packet.flags & 8) != 0) {
                         ack(packet.sessionId);
                     } else {
                         sessionId = packet.sessionId
                     }
-                    listener.onReceivePush(packet.body.content, sessionId);
+                    listener.onReceivePush(packet.body.contentBytes, sessionId);
                     break;
                 }
             }
