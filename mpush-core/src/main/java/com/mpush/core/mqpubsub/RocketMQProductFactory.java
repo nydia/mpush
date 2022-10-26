@@ -1,5 +1,6 @@
 package com.mpush.core.mqpubsub;
 
+import com.mpush.tools.config.CC;
 import com.mpush.tools.log.Logs;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 
@@ -13,9 +14,9 @@ public class RocketMQProductFactory {
     private static DefaultMQProducer producer;
 
     public static void init() {
-        String group = "message-send-group";
+        String group = CC.mp.rocketmq.recvMsgGroup;
         int sendMsgTimeout = 3000;
-        String nameSvr = "192.168.43.61:9876;192.168.43.62:9876";
+        String nameSvr = CC.mp.rocketmq.namesrv;
         String clientName = "mpush";
         try {
 
@@ -32,4 +33,5 @@ public class RocketMQProductFactory {
     public static DefaultMQProducer getProducer() {
         return producer;
     }
+
 }

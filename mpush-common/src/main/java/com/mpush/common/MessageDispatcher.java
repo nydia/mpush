@@ -79,7 +79,7 @@ public final class MessageDispatcher implements PacketReceiver {
 
     @Override
     public void onReceive(Packet packet, Connection connection) {
-        MessageHandler handler = handlers.get(packet.cmd);
+            MessageHandler handler = handlers.get(packet.cmd);
         if (handler != null) {
             Profiler.enter("time cost on [dispatch]");
             try {

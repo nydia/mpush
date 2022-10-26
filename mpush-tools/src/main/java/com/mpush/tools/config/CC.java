@@ -351,5 +351,16 @@ public interface CC {
             boolean profile_enabled = cfg.getBoolean("profile-enabled");
             Duration profile_slowly_duration = cfg.getDuration("profile-slowly-duration");
         }
+
+        interface rocketmq {
+            Config cfg = mp.cfg.getObject("rocketmq").toConfig();
+            String namesrv = cfg.getString("namesrv");
+            String sendMsgTopic = cfg.getString("send-msg-topic");
+            String sendMsgGroup = cfg.getString("send-msg-group");
+            String sendMsgTag = cfg.getString("send-msg-tag");
+            String recvMsgTopic = cfg.getString("recv-msg-topic");
+            String recvMsgGroup = cfg.getString("recv-msg-group");
+            String recvMsgTag = cfg.getString("recv-msg-tag");
+        }
     }
 }

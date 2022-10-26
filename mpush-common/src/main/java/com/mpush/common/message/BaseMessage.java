@@ -141,7 +141,6 @@ public abstract class BaseMessage implements Message {
     private void encodeJsonBody0() {
         packet.setBody(encodeJsonBody());
     }
-
     private void encodeJsonStringBody0() {
         packet.setBody(encodeJsonStringBody());
     }
@@ -149,6 +148,7 @@ public abstract class BaseMessage implements Message {
     protected String encodeJsonStringBody() {
         return Jsons.toJson(this);
     }
+
 
     private void encodeBodyRaw() {
         if ((status & STATUS_ENCODED) == 0) {

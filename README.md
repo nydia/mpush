@@ -16,6 +16,26 @@
 
 ps:由于源码分别在github和码云有两份，最新的代码以github为主
 
+### 源码解析
+
+1. 接收消息入口:
+WebSocketChannelHandler # channelRead0
+com.mpush.common.MessageDispatcher # onReceive(MessageDispatcher.java:82)
+
+2. 接受消息的命令cmd
+注册cmd:
+WebsocketServer:
+public void init() {
+    super.init();
+    connectionManager.init();
+    messageDispatcher.register(Command.HANDSHAKE, () -> new HandshakeHandler(mPushServer));
+    messageDispatcher.register(Command.BIND, () -> new BindUserHandler(mPushServer));
+    messageDispatcher.register(Command.UNBIND, () -> new BindUserHandler(mPushServer));
+    messageDispatcher.register(Command.PUSH, PushHandlerFactory::create);
+    messageDispatcher.register(Command.ACK, () -> new AckHandler(mPushServer));
+}
+
+
 ## 服务调用关系
 ![](https://mpusher.github.io/docs/服务依赖关系.png)
 

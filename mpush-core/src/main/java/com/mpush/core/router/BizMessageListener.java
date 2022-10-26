@@ -7,8 +7,7 @@ import com.mpush.api.push.*;
 import com.mpush.api.spi.common.Json;
 import com.mpush.api.spi.common.MQClient;
 import com.mpush.api.spi.common.MQMessageReceiver;
-import com.mpush.common.message.BizMessage;
-import com.mpush.tools.event.EventConsumer;
+import com.mpush.common.message.ChatMessage;
 import com.mpush.tools.log.Logs;
 
 import java.util.concurrent.FutureTask;
@@ -44,14 +43,14 @@ public final class BizMessageListener implements MQMessageReceiver {
         PushSender sender = PushSender.create();
         sender.start().join();
 
-        BizMessage bizMessage = Json.JSON.fromJson(message.toString(), BizMessage.class);
-        PushMsg msg = PushMsg.build(MsgType.MESSAGE, new String(bizMessage.getContentBytes()));
-        msg.setMsgId("msgId_" + bizMessage.getMessageId());
+        ChatMessage chatMessage = Json.JSON.fromJson(message.toString(), ChatMessage.class);
+        PushMsg msg = PushMsg.build(MsgType.MESSAGE, new String(chatMessage.getContent()));
+        msg.setMsgId("msgId_" + chatMessage.getMessageId());
 
         PushContext context = PushContext.build(msg)
                 .setAckModel(AckModel.AUTO_ACK)
                 .setBroadcast(false)
-                .setUserIds(bizMessage.getToUserIds())
+                .setUserIds(chatMessage.getToUserIds())
                 .setTimeout(2000)
                 .setCallback(new PushCallback() {
                     @Override

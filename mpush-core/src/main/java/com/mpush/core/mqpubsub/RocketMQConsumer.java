@@ -2,7 +2,8 @@ package com.mpush.core.mqpubsub;
 
 import com.mpush.api.push.*;
 import com.mpush.api.spi.common.Json;
-import com.mpush.common.message.BizMessage;
+import com.mpush.common.message.ChatMessage;
+import com.mpush.tools.config.CC;
 import com.mpush.tools.log.Logs;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -21,15 +22,16 @@ import java.util.concurrent.FutureTask;
 public class RocketMQConsumer {
 
     public void start() {
-        String mq_group = "message-send-group";
-        String nameSvr = "192.168.43.61:9876;192.168.43.62:9876";
+        String mqGroup = CC.mp.rocketmq.sendMsgGroup;
+        String mqTopic = CC.mp.rocketmq.sendMsgTopic;
+        String nameSvr = CC.mp.rocketmq.namesrv;
         try {
             //1.创建消费者Consumer，制定消费者组名
-            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(mq_group);
+            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(mqGroup);
             //2.指定Nameserver地址
             consumer.setNamesrvAddr(nameSvr);
             //3.订阅主题Topic和Tag
-            consumer.subscribe(mq_group, "*");
+            consumer.subscribe(mqTopic, "*");
             //consumer.subscribe("base", "Tag1");
 
             //消费所有"*",消费Tag1和Tag2  Tag1 || Tag2
@@ -67,16 +69,16 @@ public class RocketMQConsumer {
             PushSender sender = PushSender.create();
             sender.start().join();
 
-            BizMessage bizMessage = Json.JSON.fromJson(content, BizMessage.class);
-            PushMsg msg = PushMsg.build(MsgType.MESSAGE, bizMessage.getContent());
-            msg.setMsgId("msgId_" + bizMessage.getMessageId());
+            ChatMessage chatMessage = Json.JSON.fromJson(content, ChatMessage.class);
+            PushMsg msg = PushMsg.build(MsgType.MESSAGE, new String(chatMessage.getContent()));
+            msg.setMsgId("msgId_" + chatMessage.getMessageId());
 
             PushContext context = PushContext.build(msg)
                     .setAckModel(AckModel.AUTO_ACK)
                     //.setUserId("user-" + i)
                     .setBroadcast(false)
                     //.setCondition("tags&&tags.indexOf('test')!=-1")
-                    .setUserIds(bizMessage.getToUserIds())
+                    .setUserIds(chatMessage.getToUserIds())
                     .setTimeout(2000)
                     .setCallback(new PushCallback() {
                         @Override

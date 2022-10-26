@@ -1,0 +1,21 @@
+2022-10-25 19:04:54.753 - init zk client, config=ZKConfig{hosts='10.200.200.145:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-25 19:04:58.771 - init zk client waiting for connected...
+2022-10-25 19:04:58.873 - zk client start success, server lists is:10.200.200.145:2181
+2022-10-25 19:05:06.916 - register {host='192.168.42.1', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-25 19:05:06.975 - register {host='192.168.42.1', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-25 19:07:32.217 - init zk client, config=ZKConfig{hosts='10.200.200.145:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-25 19:07:36.311 - init zk client waiting for connected...
+2022-10-25 19:07:36.471 - zk client start success, server lists is:10.200.200.145:2181
+2022-10-25 19:07:44.274 - register {host='192.168.42.1', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-25 19:07:44.295 - register {host='192.168.42.1', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-25 19:09:38.898 - init zk client, config=ZKConfig{hosts='10.200.200.145:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-25 19:09:43.821 - init zk client waiting for connected...
+2022-10-25 19:09:43.929 - zk client start success, server lists is:10.200.200.145:2181
+2022-10-25 19:09:53.089 - register {host='10.200.5.34', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-25 19:09:53.124 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-25 19:15:51.060 - init zk client, config=ZKConfig{hosts='10.200.200.145:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-25 19:15:55.295 - init zk client waiting for connected...
+2022-10-25 19:15:55.404 - zk client start success, server lists is:10.200.200.145:2181
+2022-10-25 19:16:04.480 - register {host='10.200.5.34', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-25 19:16:04.493 - register {host='10.200.5.34', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-25 19:16:04.517 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
