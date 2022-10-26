@@ -23,6 +23,7 @@ import com.mpush.api.connection.Connection;
 import com.mpush.api.protocol.Command;
 import com.mpush.api.protocol.JsonPacket;
 import com.mpush.api.protocol.Packet;
+import com.mpush.api.push.*;
 import com.mpush.api.spi.Spi;
 import com.mpush.api.spi.common.Json;
 import com.mpush.api.spi.handler.BindValidator;
@@ -34,6 +35,8 @@ import com.mpush.core.mqpubsub.RocketMQProductFactory;
 import com.mpush.core.mqpubsub.RocketMQUtils;
 import com.mpush.core.push.PushCenter;
 import com.mpush.tools.log.Logs;
+
+import java.util.concurrent.FutureTask;
 
 /**
  * Created by ohun on 2015/12/23.
@@ -88,8 +91,9 @@ public final class UserChatHandler extends BaseMessageHandler<ChatMessage> {
                     && ("1".equals(message.getToUserType())
                     || "2".equals(message.getToUserType())
                     || "3".equals(message.getToUserType()))
-                    ) {
-                pushCenter.push(message);
+            ) {
+                //pushCenter.push(message);
+                sendMsg(message);
             }
 
             message.sendRaw();
@@ -101,6 +105,33 @@ public final class UserChatHandler extends BaseMessageHandler<ChatMessage> {
             RocketMQUtils.sendRecvMessage(RocketMQProductFactory.getProducer(), message);
         } catch (Exception e) {
             Logs.Console.error("接受消息后发送MQ处理失败:" + e.getMessage(), e);
+        }
+    }
+
+    public void sendMsg(ChatMessage message) {
+        try {
+            PushSender sender = PushSender.create();
+            sender.start().join();
+
+            PushMsg msg = PushMsg.build(MsgType.MESSAGE, Json.JSON.toJson(message));
+            msg.setMsgId("msgId_" + message.getMessageId());
+
+            PushContext context = PushContext.build(msg)
+                    .setAckModel(AckModel.AUTO_ACK)
+                    .setUserId(message.getUserId())
+                    .setBroadcast(false)
+                    //.setCondition("tags&&tags.indexOf('test')!=-1")
+                    //.setUserIds(chatMessage.getToUserIds())
+                    .setTimeout(2000)
+                    .setCallback(new PushCallback() {
+                        @Override
+                        public void onResult(PushResult result) {
+                            Logs.Console.info("推送结果为: " + result);
+                        }
+                    });
+            FutureTask<PushResult> future = sender.send(context);
+        } catch (Exception e) {
+            Logs.Console.error("推送消息失败:" + e.getMessage(), e);
         }
     }
 
