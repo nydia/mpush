@@ -23,44 +23,45 @@ public class ClientAuthentication {
 
     public static boolean jwtAuth(ChatMessage chatMessage) {
         boolean result = true;
-        //校验参数
-        if (StringUtils.isBlank(chatMessage.getFromUserType())
-                || (!"1".equals(chatMessage.getFromUserType())
-                    && !"2".equals(chatMessage.getFromUserType())
-                    && !"3".equals(chatMessage.getFromUserType()))
-                || StringUtils.isBlank(chatMessage.getToUserType())
-                || StringUtils.isBlank(chatMessage.getUserId())
-                || StringUtils.isBlank(chatMessage.getFromUserId())
-                || StringUtils.isBlank(chatMessage.getContentStr())
-                ) {
-            return false;
-        }
-
-        String payloadUserId = "userId";
-        String cacheKey = "";
-        if ("1".equals(chatMessage.getFromUserType()) || "2".equals(chatMessage.getFromUserType())) {
-            cacheKey = "Token:user:" + chatMessage.getFromUserId();
-        } else if ("3".equals(chatMessage.getFromUserType())) {
-            cacheKey = "Token:mcht:" + chatMessage.getFromUserId();
-        }
-
-        String token = chatMessage.getToken();
-        //对token鉴权
-        try {
-            JWTUtils.verify(token);
-
-            String userId = JWTUtils.getPayload(payloadUserId, token);
-            if (userId == null || StringUtils.isBlank(userId))
-                return false;
-        } catch (Exception e) {
-            Logs.PUSH.info("对Client端鉴权失败: " + e.getMessage(), e);
-            return false;
-        }
-        //对redis里面的userId
-        String userId = cacheManager.get(cacheKey, String.class);
-        if (StringUtils.isBlank(userId)) {
-            return false;
-        }
+//        //校验参数
+//        if (StringUtils.isBlank(chatMessage.getFromUserType())
+//                || (!"1".equals(chatMessage.getFromUserType())
+//                && !"2".equals(chatMessage.getFromUserType())
+//                && !"3".equals(chatMessage.getFromUserType()))
+//                || StringUtils.isBlank(chatMessage.getToUserType())
+//                || StringUtils.isBlank(chatMessage.getUserId())
+//                || StringUtils.isBlank(chatMessage.getFromUserId())
+//                || StringUtils.isBlank(chatMessage.getContentStr())
+//                ) {
+//            return false;
+//        }
+//
+//        String payloadUserId = "userId";
+//        String cacheKey = "";
+//        if ("1".equals(chatMessage.getFromUserType()) || "2".equals(chatMessage.getFromUserType())) {
+//            cacheKey = "lottery-server:Token:user:" + chatMessage.getFromUserId();
+//        } else if ("3".equals(chatMessage.getFromUserType())) {
+//            cacheKey = "lottery-mcht:Token:mcht:" + chatMessage.getFromUserId();
+//        }
+//
+//        String token = chatMessage.getToken();
+//        //对token鉴权
+//        try {
+//            JWTUtils.verify(token);
+//
+//            String userId = JWTUtils.getPayload(payloadUserId, token);
+//            if (userId == null || StringUtils.isBlank(userId))
+//                return false;
+//        } catch (Exception e) {
+//            Logs.PUSH.info("对Client端鉴权失败: " + e.getMessage(), e);
+//            return false;
+//        }
+//        //对redis里面的userId
+//        //这里可能取不到数据，要看原有的redis缓存的dbindex配置的是几
+//        String userId = cacheManager.get(cacheKey, String.class);
+//        if (StringUtils.isBlank(userId)) {
+//            return false;
+//        }
         return result;
     }
 

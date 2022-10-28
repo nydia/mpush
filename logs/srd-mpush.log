@@ -101,3 +101,78 @@
 2022-10-28 18:06:04.884 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
 2022-10-28 18:06:04.930 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
 2022-10-28 18:06:04.982 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 18:10:44.341 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:10:47.203 - zk connection state changed new state=LOST, isConnected=false
+2022-10-28 18:11:33.834 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:11:53.805 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:12:34.226 - persistEphemeral:/cluster/cs/3176b2b6-2cda-489c-a759-ac5b59c24c51,{"attrs":{"weight":1},"host":"169.254.80.85","port":3000}
+org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /mpush/cluster/cs/3176b2b6-2cda-489c-a759-ac5b59c24c51
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:111)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:873)
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:250)
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:244)
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:109)
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.pathInForeground(DeleteBuilderImpl.java:241)
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:225)
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:35)
+	at com.mpush.zk.ZKClient.registerEphemeral(ZKClient.java:279)
+	at com.mpush.zk.ZKClient.reRegisterEphemeral(ZKClient.java:296)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at com.mpush.zk.ZKClient.lambda$addConnectionStateListener$0(ZKClient.java:151)
+	at org.apache.curator.framework.state.ConnectionStateManager$2.apply(ConnectionStateManager.java:259)
+	at org.apache.curator.framework.state.ConnectionStateManager$2.apply(ConnectionStateManager.java:255)
+	at org.apache.curator.framework.listen.ListenerContainer$1.run(ListenerContainer.java:93)
+	at org.apache.curator.shaded.com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:297)
+	at org.apache.curator.framework.listen.ListenerContainer.forEach(ListenerContainer.java:85)
+	at org.apache.curator.framework.state.ConnectionStateManager.processEvents(ConnectionStateManager.java:253)
+	at org.apache.curator.framework.state.ConnectionStateManager.access$000(ConnectionStateManager.java:43)
+	at org.apache.curator.framework.state.ConnectionStateManager$1.call(ConnectionStateManager.java:111)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:12:34.228 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:12:34.296 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:12:34.297 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:12:34.298 - zk connection state changed new state=LOST, isConnected=false
+2022-10-28 18:12:34.369 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:15:38.868 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 18:15:42.903 - init zk client waiting for connected...
+2022-10-28 18:15:43.011 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 18:15:50.370 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 18:15:50.420 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 18:15:50.471 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 18:16:50.550 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:16:51.994 - zk connection state changed new state=LOST, isConnected=false
+2022-10-28 18:16:52.063 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:20:16.488 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:20:47.939 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:36:13.513 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 18:36:17.122 - init zk client waiting for connected...
+2022-10-28 18:36:17.249 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 18:36:24.976 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 18:36:25.028 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 18:36:25.079 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 18:40:01.938 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:40:02.611 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:42:39.392 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:45:19.888 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:45:38.683 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 18:45:42.385 - init zk client waiting for connected...
+2022-10-28 18:45:42.570 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 18:45:49.756 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 18:45:49.809 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 18:45:49.866 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 18:46:34.739 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:46:35.504 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:46:46.721 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:46:50.247 - zk connection state changed new state=LOST, isConnected=false
+2022-10-28 18:46:50.309 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 19:23:26.746 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 19:23:30.237 - init zk client waiting for connected...
+2022-10-28 19:23:30.343 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 19:23:38.232 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 19:23:38.308 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 19:23:38.349 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.

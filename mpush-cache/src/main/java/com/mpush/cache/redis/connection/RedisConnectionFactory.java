@@ -49,7 +49,8 @@ public class RedisConnectionFactory {
     private String sentinelMaster;
     private List<RedisNode> redisServers;
     private boolean isCluster = false;
-    private int dbIndex = 0;
+    //private int dbIndex = 0;
+    private int dbIndex = 2;
 
     private JedisShardInfo shardInfo;
     private Pool<Jedis> pool;

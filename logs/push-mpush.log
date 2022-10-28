@@ -456,3 +456,225 @@ org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefa
 2022-10-28 18:05:19.879 - 开始推送消息
 2022-10-28 18:05:19.880 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"1"},topic: message-recv-topic,tags: message-recv-tag
 2022-10-28 18:05:19.993 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:09:16.057 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"Mg==","contentStr":"2","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"1"}
+2022-10-28 18:09:16.058 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"Mg==","contentStr":"2","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"1"}
+2022-10-28 18:09:25.805 - 开始推送消息
+2022-10-28 18:09:25.849 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"Mg==","contentStr":"2","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"1"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:09:29.955 - MQ发送消息失败: sendDefaultImpl call timeout
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:640)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1310)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1256)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:339)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendMessage(RocketMQUtils.java:42)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendRecvMessage(RocketMQUtils.java:26)
+	at com.mpush.core.handler.UserChatHandler.receive(UserChatHandler.java:137)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:103)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:50)
+	at com.mpush.common.handler.BaseMessageHandler.handle(BaseMessageHandler.java:50)
+	at com.mpush.common.MessageDispatcher.onReceive(MessageDispatcher.java:86)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:42)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:24)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:108)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:204)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:310)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:647)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:499)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:461)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:10:00.710 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:10:00.710 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:10:00.719 - 开始推送消息
+2022-10-28 18:10:00.720 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:10:00.733 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:10:22.022 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"1","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:10:23.905 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"1","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:10:48.162 - 开始推送消息
+2022-10-28 18:10:48.163 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"1","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:11:33.538 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:11:47.365 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIyMjIy","contentStr":"222222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:11:49.183 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIyMjIy","contentStr":"222222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:12:28.050 - 开始推送消息
+2022-10-28 18:12:28.050 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIyMjIy","contentStr":"222222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:12:29.213 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:16:26.350 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MzMz","contentStr":"333","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:16:26.350 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MzMz","contentStr":"333","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:16:30.720 - 开始推送消息
+2022-10-28 18:16:30.763 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MzMz","contentStr":"333","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:16:34.382 - MQ发送消息失败: sendDefaultImpl call timeout
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:640)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1310)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1256)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:339)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendMessage(RocketMQUtils.java:42)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendRecvMessage(RocketMQUtils.java:26)
+	at com.mpush.core.handler.UserChatHandler.receive(UserChatHandler.java:137)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:103)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:50)
+	at com.mpush.common.handler.BaseMessageHandler.handle(BaseMessageHandler.java:50)
+	at com.mpush.common.MessageDispatcher.onReceive(MessageDispatcher.java:86)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:42)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:24)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:108)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:204)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:310)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:647)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:499)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:461)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:16:45.822 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:16:49.595 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:16:50.559 - 开始推送消息
+2022-10-28 18:16:50.560 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjI=","contentStr":"22","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:16:51.995 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:17:01.845 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIyMg==","contentStr":"2222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:17:04.805 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIyMg==","contentStr":"2222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"}
+2022-10-28 18:20:47.014 - 开始推送消息
+2022-10-28 18:20:47.014 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIyMg==","contentStr":"2222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1NTczMywiaWF0IjoxNjY2OTUwOTMzLCJ1c2VySWQiOiIyNiJ9.2bLw5FzejfZqlVeVeSoiu5eVjg7CwFCeAAzEfl7z8KI","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:20:47.850 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:39:57.638 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIx","contentStr":"221","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:40:00.834 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIx","contentStr":"221","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:45:19.784 - 开始推送消息
+2022-10-28 18:45:19.928 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIx","contentStr":"221","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:46:31.639 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:46:34.125 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:46:46.716 - 开始推送消息
+2022-10-28 18:46:46.730 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIy","contentStr":"222","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":3,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:46:53.623 - MQ发送消息失败: sendDefaultImpl call timeout
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:640)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1310)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1256)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:339)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendMessage(RocketMQUtils.java:42)
+	at com.mpush.core.mqpubsub.RocketMQUtils.sendRecvMessage(RocketMQUtils.java:26)
+	at com.mpush.core.handler.UserChatHandler.receive(UserChatHandler.java:137)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:103)
+	at com.mpush.core.handler.UserChatHandler.handle(UserChatHandler.java:50)
+	at com.mpush.common.handler.BaseMessageHandler.handle(BaseMessageHandler.java:50)
+	at com.mpush.common.MessageDispatcher.onReceive(MessageDispatcher.java:86)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:42)
+	at com.mpush.core.server.WebSocketChannelHandler.channelRead0(WebSocketChannelHandler.java:24)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:108)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:204)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:310)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:647)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:499)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:461)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:47:03.944 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":4,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:47:03.944 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":4,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"}
+2022-10-28 18:47:03.962 - 开始推送消息
+2022-10-28 18:47:03.963 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":4,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"1"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:47:03.984 - MQ发送的消结果为: SEND_OK
+2022-10-28 18:47:13.110 - 接受到用户聊天消息，消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":5,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"2"}
+2022-10-28 18:47:13.111 - 对消息进行decode之后消息内容为： {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":5,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"2"}
+2022-10-28 18:47:13.131 - 开始推送消息
+2022-10-28 18:47:13.132 - MQ发送的消息内容为: {"broadcast":false,"clientType":2,"content":"MjIy5Y+R5Y+R5Y+R5pS+5aSn","contentStr":"222发发发放大","executor":{"ioRatio":70,"shutdown":false,"shuttingDown":false,"terminated":false},"flags":0,"fromUserId":"26","fromUserType":"1","messageCategory":"1","needAck":false,"osName":0,"sessionId":5,"timeoutMills":0,"toUserType":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NzU1ODM1NywiaWF0IjoxNjY2OTUzNTU3LCJ1c2VySWQiOiIyNiJ9.N-7qtDvlGpXSc5H_30q3edBN1bX_cLmr_2h4b4nky2U","userId":"2"},topic: message-recv-topic,tags: message-recv-tag
+2022-10-28 18:47:13.141 - MQ发送的消结果为: SEND_OK
