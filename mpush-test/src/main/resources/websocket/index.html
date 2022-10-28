@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>websocket测试</title>
+
+    <script type="text/javascript">
+        window.CHAT = {
+            socket: null,
+            init: function () {
+                if (window.WebSocket) {
+                    console.log("您的浏览器支持 WebSocket!");
+
+                    //先登录
+                    //消息格式
+                    //{"userId":"5","content":"5号的消息","mediaUrl":"http://www.baidu.com","sendTime":"2022-10-13 11:57:05","readStatus":"1"}
+                    //jwt生成的token  userId = 5
+                    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImV4cCI6MTY2NjI2MTM0OSwiaWF0IjoxNjY1NjU2NTQ5LCJ1c2VySWQiOiI1In0.S1EUBtEsA1aqyhNFDSW8trob51ecVY1D7qyUcRiTkjc";
+                    //var url = "ws://localhost:8081/user-api/ws/5";
+                    var url = "ws://localhost:8088/user-api/ws?token=" + token;
+                    // 打开一个 web socket
+                    CHAT.socket = new WebSocket(url);
+                    CHAT.socket.onopen = function () {
+                        //console.log("连接建立成功");
+                        alert("连接建立成功");
+                        // Web Socket 已连接上，使用 send() 方法发送数据
+                        //CHAT.socket.send("发送数据");
+                    },
+                    CHAT.socket.onclose = function () {
+                        //console.log("连接关闭...");
+                        alert("连接关闭...");
+                    },
+                    CHAT.socket.onerror = function () {
+                        alert("发生错误...");
+                        //console.log("发生错误...");
+                    },
+                    CHAT.socket.onmessage = function (e) {
+                        var received_msg = e.data;
+                        console.log("数据已接收,数据为：" + received_msg);
+                        //alert(received_msg)
+                        var _html = document.getElementById("contentRec").innerHTML;
+                        _html = _html + received_msg + "<br/>";
+                        document.getElementById("contentRec").innerHTML = _html;
+
+                    }
+                } else {
+                    alert("浏览器不支持websocket协议");
+                }
+            },
+            chat: function () {
+                sendMsg();
+            }
+        }
+
+        CHAT.init();
+
+        function sendMsg() {
+            var msg = document.getElementById("msgContent").value;
+            if (CHAT.socket.readyState == 1) {
+                console.log("连接成功-----if-----");
+
+                CHAT.socket.send(msg);
+
+                setTimeout(function () {
+                    if (CHAT.socket.readyState == 1) {
+                        console.log("无需尝试发送----if----");
+                        return;
+                    } else {
+                        console.log("尝试发送----if----");
+                        CHAT.chat();
+                    }
+
+                }, 1000);
+            } else {
+                console.log("未连接或连接中断-----else----");
+                CHAT.socket.close();
+                CHAT.init();
+                setTimeout(function () {
+                    CHAT.socket.send(msg);
+                    setTimeout(function () {
+                        if (websocket.readyState == 1) {
+                            console.log("无需尝试发送----else----");
+                            return;
+                        } else {
+                            alert("尝试发送-----else-----");
+                            sendMsg(msg);
+                        }
+                    },1000);
+                }, 1000);
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+<div id="tt">
+    <a href="javascript:CHAT.init()">点击测试连接 WebSocket</a><br/>
+    发送消息：<br/><textarea id="msgContent" rows="5" cols="40"></textarea><br/>
+    <input type="button" value="发送消息" onclick="CHAT.chat()"/><br/>
+    接受消息：<br/>
+    <div id="contentRec"></div>
+</div>
+
+</body>
+</html>

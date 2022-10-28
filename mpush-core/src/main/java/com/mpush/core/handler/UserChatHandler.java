@@ -28,9 +28,13 @@ import com.mpush.api.spi.Spi;
 import com.mpush.api.spi.common.Json;
 import com.mpush.api.spi.handler.BindValidator;
 import com.mpush.api.spi.handler.BindValidatorFactory;
+import com.mpush.common.ErrorCode;
 import com.mpush.common.handler.BaseMessageHandler;
 import com.mpush.common.message.ChatMessage;
+import com.mpush.common.message.ErrorMessage;
+import com.mpush.common.message.OkMessage;
 import com.mpush.core.MPushServer;
+import com.mpush.core.auth.ClientAuthentication;
 import com.mpush.core.mqpubsub.RocketMQProductFactory;
 import com.mpush.core.mqpubsub.RocketMQUtils;
 import com.mpush.core.push.PushCenter;
@@ -68,19 +72,42 @@ public final class UserChatHandler extends BaseMessageHandler<ChatMessage> {
 
             chatMessage.setMessageCategory("1");
             chatMessage.setContentStr(content);
+
+            connection.getSessionContext().getClientType();
         } else {
             //TODO 返回失败信息
+            Logs.PUSH.info("对接受到的消息decode失败");
         }
+
         return chatMessage;
     }
 
     @Override
     public void handle(ChatMessage message) {
-        if (message.getPacket().cmd == Command.CHAT.cmd) {
-            ChatMessage chatMessage = decode(message.getPacket(), message.getConnection());
-            receive(chatMessage);
-        } else {
-            // TODO
+        Logs.PUSH.info("接受到用户聊天消息，消息内容为： " + Json.JSON.toJson(message));
+        if (message.getPacket() == null) {
+            ErrorMessage.from(message).setReason("Param invalid(packet is null)").close();
+        }
+
+        try {
+            if (message.getPacket().cmd == Command.CHAT.cmd) {
+                ChatMessage chatMessage = decode(message.getPacket(), message.getConnection());
+
+                Logs.PUSH.info("对消息进行decode之后消息内容为： " + Json.JSON.toJson(message));
+
+                //鉴权
+                if (!ClientAuthentication.authentication(message)) {
+                    ErrorMessage.from(message).setReason(ErrorCode.NO_PERMISSION.errorMsg + "(token invalid or param is wrong)").close();
+                }
+
+                receive(chatMessage);
+            } else {
+                Logs.PUSH.info("接受到的消息操作类型不是CHAT(19)类类型");
+                ErrorMessage.from(message).setReason("Param invalid(cmd is not 19)").close();
+            }
+        } catch (Exception e) {
+            Logs.PUSH.info("对接受到的消息decode失败: " + e.getMessage(), e);
+            ErrorMessage.from(message).setReason("Param invalid").close();
         }
     }
 
@@ -91,16 +118,21 @@ public final class UserChatHandler extends BaseMessageHandler<ChatMessage> {
                     && ("1".equals(message.getToUserType())
                     || "2".equals(message.getToUserType())
                     || "3".equals(message.getToUserType()))
-            ) {
-                //pushCenter.push(message);
-                sendMsg(message);
+                    ) {
+                Logs.PUSH.info("开始推送消息");
+                pushCenter.push(message);
+
+                //场景: 采用原有连接,进行系统回复,
+                //message.sendRaw();
             }
 
-            message.sendRaw();
+            //回复消息发送结果
+            OkMessage.from(message).send();
         } catch (Exception e) {
             Logs.Console.error("接受消息后推送到客户端处理失败:" + e.getMessage(), e);
         }
 
+        //send mq, lottery receive
         try {
             RocketMQUtils.sendRecvMessage(RocketMQProductFactory.getProducer(), message);
         } catch (Exception e) {

@@ -18,6 +18,14 @@ import java.util.List;
 public class ChatMessage extends ByteBufMessage implements IPushMessage {
 
     /**
+     * 客户端类型：目前客户端是写死的，所以下面的clientType固定返回了2（PC)，
+     * 如果osName是动态的化，那么clientType需要根据osName获取
+     */
+    public int osName;
+
+    public int clientType;
+
+    /**
      * token
      */
     private String token;
@@ -146,7 +154,11 @@ public class ChatMessage extends ByteBufMessage implements IPushMessage {
 
     @Override
     public int getClientType() {
-        return 0;
+        return 2;
+    }
+
+    public void setClientType(int clientType) {
+        this.clientType = clientType;
     }
 
     @Override
@@ -274,5 +286,13 @@ public class ChatMessage extends ByteBufMessage implements IPushMessage {
 
     public void setMessageCategory(String messageCategory) {
         this.messageCategory = messageCategory;
+    }
+
+    public int getOsName() {
+        return osName;
+    }
+
+    public void setOsName(int osName) {
+        this.osName = osName;
     }
 }

@@ -38,6 +38,9 @@ public void init() {
 3. 处理用户聊天
    UserChatHandler # handle
 
+4. 客户端授权
+   ClientAuthentication
+   
 ## 服务调用关系
 ![](https://mpusher.github.io/docs/服务依赖关系.png)
 

@@ -34,6 +34,7 @@ public enum ErrorCode {
     REPEAT_HANDSHAKE(102, "repeat handshake"),
     SESSION_EXPIRED(103, "session expired"),
     INVALID_DEVICE(104, "invalid device"),
+    NO_PERMISSION(105, "No permission"),
     UNKNOWN(-1, "unknown");
 
     ErrorCode(int code, String errorMsg) {

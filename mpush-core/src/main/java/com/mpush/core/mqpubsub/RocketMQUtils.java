@@ -1,7 +1,6 @@
 package com.mpush.core.mqpubsub;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.mpush.common.message.ChatMessage;
 import com.mpush.tools.config.CC;
 import com.mpush.tools.log.Logs;
@@ -35,14 +34,15 @@ public class RocketMQUtils {
 
     public static void sendMessage(DefaultMQProducer producer, String msg, String topic, String tags) {
         try {
+            Logs.PUSH.info("MQ发送的消息内容为: {},topic: {},tags: {}", msg, topic, tags);
             Message message = new Message();
             message.setTopic(topic);
             message.setTags(tags);
             message.setBody(msg.getBytes(Charset.forName("UTF-8")));
             SendResult sendResult = producer.send(message);
-            Logs.Console.info("消息发送结果为: " + sendResult.getSendStatus());
+            Logs.PUSH.info("MQ发送的消结果为: " + sendResult.getSendStatus());
         } catch (Exception e) {
-            Logs.Console.error("发送消息失败: " + e.getMessage(), e);
+            Logs.PUSH.error("MQ发送消息失败: " + e.getMessage(), e);
         }
     }
 

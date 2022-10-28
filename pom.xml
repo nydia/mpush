@@ -73,6 +73,7 @@
         <netty.version>4.1.25.Final</netty.version>
         <slf4j.version>1.7.25</slf4j.version>
         <os.detected.classifier>linux-x86_64</os.detected.classifier>
+        <java-jwt.version>3.18.3</java-jwt.version>
     </properties>
 
 
@@ -280,6 +281,11 @@
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>3.22.0-GA</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
