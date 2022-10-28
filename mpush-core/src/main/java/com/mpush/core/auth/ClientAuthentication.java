@@ -44,24 +44,24 @@ public class ClientAuthentication {
             cacheKey = "lottery-mcht:Token:mcht:" + chatMessage.getFromUserId();
         }
 
-//        String token = chatMessage.getToken();
-//        //对token鉴权
-//        try {
-//            JWTUtils.verify(token);
-//
-//            String userId = JWTUtils.getPayload(payloadUserId, token);
-//            if (userId == null || StringUtils.isBlank(userId))
-//                return false;
-//        } catch (Exception e) {
-//            Logs.PUSH.info("对Client端鉴权失败: " + e.getMessage(), e);
-//            return false;
-//        }
-//        //对redis里面的userId
-//        //这里可能取不到数据，要看原有的redis缓存的dbindex配置的是几
-//        String userId = cacheManager.get(cacheKey, String.class);
-//        if (StringUtils.isBlank(userId)) {
-//            return false;
-//        }
+        String token = chatMessage.getToken();
+        //对token鉴权
+        try {
+            JWTUtils.verify(token);
+
+            String userId = JWTUtils.getPayload(payloadUserId, token);
+            if (userId == null || StringUtils.isBlank(userId))
+                return false;
+        } catch (Exception e) {
+            Logs.PUSH.info("对Client端鉴权失败: " + e.getMessage(), e);
+            return false;
+        }
+        //对redis里面的userId
+        //这里可能取不到数据，要看原有的redis缓存的dbindex配置的是几
+        String userId = cacheManager.get(cacheKey, String.class);
+        if (StringUtils.isBlank(userId)) {
+            return false;
+        }
         return result;
     }
 
