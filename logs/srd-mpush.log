@@ -176,3 +176,9 @@ org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode f
 2022-10-28 19:23:38.232 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
 2022-10-28 19:23:38.308 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
 2022-10-28 19:23:38.349 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 19:56:34.107 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 19:56:37.792 - init zk client waiting for connected...
+2022-10-28 19:56:37.885 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 19:56:45.366 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 19:56:45.428 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 19:56:45.496 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.

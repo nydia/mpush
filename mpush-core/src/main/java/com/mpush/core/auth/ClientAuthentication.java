@@ -23,27 +23,27 @@ public class ClientAuthentication {
 
     public static boolean jwtAuth(ChatMessage chatMessage) {
         boolean result = true;
-//        //校验参数
-//        if (StringUtils.isBlank(chatMessage.getFromUserType())
-//                || (!"1".equals(chatMessage.getFromUserType())
-//                && !"2".equals(chatMessage.getFromUserType())
-//                && !"3".equals(chatMessage.getFromUserType()))
-//                || StringUtils.isBlank(chatMessage.getToUserType())
-//                || StringUtils.isBlank(chatMessage.getUserId())
-//                || StringUtils.isBlank(chatMessage.getFromUserId())
-//                || StringUtils.isBlank(chatMessage.getContentStr())
-//                ) {
-//            return false;
-//        }
-//
-//        String payloadUserId = "userId";
-//        String cacheKey = "";
-//        if ("1".equals(chatMessage.getFromUserType()) || "2".equals(chatMessage.getFromUserType())) {
-//            cacheKey = "lottery-server:Token:user:" + chatMessage.getFromUserId();
-//        } else if ("3".equals(chatMessage.getFromUserType())) {
-//            cacheKey = "lottery-mcht:Token:mcht:" + chatMessage.getFromUserId();
-//        }
-//
+        //校验参数
+        if (StringUtils.isBlank(chatMessage.getFromUserType())
+                || (!"1".equals(chatMessage.getFromUserType())
+                && !"2".equals(chatMessage.getFromUserType())
+                && !"3".equals(chatMessage.getFromUserType()))
+                || StringUtils.isBlank(chatMessage.getToUserType())
+                || StringUtils.isBlank(chatMessage.getUserId())
+                || StringUtils.isBlank(chatMessage.getFromUserId())
+                || StringUtils.isBlank(chatMessage.getContentStr())
+                ) {
+            return false;
+        }
+
+        String payloadUserId = "userId";
+        String cacheKey = "";
+        if ("1".equals(chatMessage.getFromUserType()) || "2".equals(chatMessage.getFromUserType())) {
+            cacheKey = "lottery-server:Token:user:" + chatMessage.getFromUserId();
+        } else if ("3".equals(chatMessage.getFromUserType())) {
+            cacheKey = "lottery-mcht:Token:mcht:" + chatMessage.getFromUserId();
+        }
+
 //        String token = chatMessage.getToken();
 //        //对token鉴权
 //        try {
