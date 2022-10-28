@@ -5189,3 +5189,111 @@ java.lang.ClassCastException: com.mpush.common.message.ChatMessage cannot be cas
 	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 17:56:37.484 - [mp-conn-work-3-2] WARN  - i.n.u.c.AbstractEventExecutor - A task raised an exception. Task: com.mpush.core.push.SingleUserPushTask@59b6053d
+java.lang.ClassCastException: com.mpush.common.message.ChatMessage cannot be cast to com.mpush.common.message.gateway.GatewayPushMessage
+	at com.mpush.core.push.GatewayPushListener.onOffline(GatewayPushListener.java:43)
+	at com.mpush.core.push.SingleUserPushTask.checkRemote(SingleUserPushTask.java:186)
+	at com.mpush.core.push.SingleUserPushTask.run(SingleUserPushTask.java:92)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 17:57:16.922 - [main-SendThread(192.168.43.53:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 3902ms for sessionid 0x384093be83a000a
+2022-10-28 17:57:23.965 - [Curator-Framework-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 6063 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 17:57:25.466 - [main-SendThread(192.168.43.52:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Unable to reconnect to ZooKeeper service, session 0x384093be83a000a has expired
+2022-10-28 17:57:25.478 - [mp-conn-work-3-3] WARN  - i.n.u.c.AbstractEventExecutor - A task raised an exception. Task: com.mpush.core.push.SingleUserPushTask@5ba9e607
+java.lang.ClassCastException: com.mpush.common.message.ChatMessage cannot be cast to com.mpush.common.message.gateway.GatewayPushMessage
+	at com.mpush.core.push.GatewayPushListener.onOffline(GatewayPushListener.java:43)
+	at com.mpush.core.push.SingleUserPushTask.checkRemote(SingleUserPushTask.java:186)
+	at com.mpush.core.push.SingleUserPushTask.run(SingleUserPushTask.java:92)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 17:59:17.233 - [Curator-Framework-0-SendThread(192.168.43.51:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 4903ms for sessionid 0x184093b960a000a
+2022-10-28 17:59:23.189 - [Curator-Framework-0-SendThread(192.168.43.52:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Unable to reconnect to ZooKeeper service, session 0x184093b960a000a has expired
+2022-10-28 17:59:23.189 - [Curator-Framework-0-EventThread] WARN  - org.apache.curator.ConnectionState - Session expired event received
+2022-10-28 17:59:57.808 - [Curator-Framework-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 34618 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 18:00:12.735 - [Curator-Framework-0-SendThread(192.168.43.53:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 14866ms for sessionid 0x0
+2022-10-28 18:00:24.575 - [Curator-Framework-0-SendThread(192.168.43.52:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 11327ms for sessionid 0x284093b95d1000d
+2022-10-28 18:00:28.811 - [Curator-Framework-0-SendThread(192.168.43.53:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 4098ms for sessionid 0x284093b95d1000d
+2022-10-28 18:00:28.813 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:00:28.813 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:00:28.814 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (12000). Pinning to 5000
+2022-10-28 18:00:28.814 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:00:47.379 - [Curator-Framework-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 22540 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 18:00:47.380 - [Curator-Framework-0-SendThread(192.168.43.51:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 17560ms for sessionid 0x284093b95d1000d
+2022-10-28 18:00:52.903 - [Curator-ConnectionStateManager-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 5524 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 18:01:14.451 - [Curator-Framework-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 21548 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 18:01:15.877 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.879 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:01:15.879 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.879 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.880 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:01:15.880 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.880 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:01:15.880 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (15000). Pinning to 5000
+2022-10-28 18:01:15.881 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.881 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (6000). Pinning to 5000
+2022-10-28 18:01:15.882 - [Curator-Framework-0] ERROR - o.a.c.f.imps.CuratorFrameworkImpl - Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:01:15.883 - [Curator-Framework-0] ERROR - o.a.c.f.imps.CuratorFrameworkImpl - Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:01:15.884 - [Curator-Framework-0] WARN  - o.a.c.retry.ExponentialBackoffRetry - Sleep extension too large (9000). Pinning to 5000
+2022-10-28 18:01:15.894 - [mp-conn-work-3-6] WARN  - i.n.u.c.AbstractEventExecutor - A task raised an exception. Task: com.mpush.core.push.SingleUserPushTask@fe94d30
+java.lang.ClassCastException: com.mpush.common.message.ChatMessage cannot be cast to com.mpush.common.message.gateway.GatewayPushMessage
+	at com.mpush.core.push.GatewayPushListener.onOffline(GatewayPushListener.java:43)
+	at com.mpush.core.push.SingleUserPushTask.checkRemote(SingleUserPushTask.java:176)
+	at com.mpush.core.push.SingleUserPushTask.run(SingleUserPushTask.java:92)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-10-28 18:04:14.352 - [Curator-Framework-0-SendThread(192.168.43.52:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 6433ms for sessionid 0x284093b95d1000e
+2022-10-28 18:04:30.819 - [Curator-Framework-0] WARN  - org.apache.curator.ConnectionState - Connection attempt unsuccessful after 5731 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+2022-10-28 18:04:30.819 - [Curator-Framework-0-SendThread(192.168.43.53:2181)] WARN  - org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 5739ms for sessionid 0x284093b95d1000e
+2022-10-28 18:05:20.002 - [mp-conn-work-3-8] WARN  - i.n.u.c.AbstractEventExecutor - A task raised an exception. Task: com.mpush.core.push.SingleUserPushTask@36ae1270
+java.lang.ClassCastException: com.mpush.common.message.ChatMessage cannot be cast to com.mpush.common.message.gateway.GatewayPushMessage
+	at com.mpush.core.push.GatewayPushListener.onOffline(GatewayPushListener.java:43)
+	at com.mpush.core.push.SingleUserPushTask.checkRemote(SingleUserPushTask.java:176)
+	at com.mpush.core.push.SingleUserPushTask.run(SingleUserPushTask.java:92)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)

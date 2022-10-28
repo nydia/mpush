@@ -86,3 +86,18 @@
 2022-10-28 16:53:32.835 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
 2022-10-28 16:53:32.855 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
 2022-10-28 16:53:32.887 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.
+2022-10-28 17:57:17.989 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 17:57:25.678 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 17:59:22.223 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 17:59:23.243 - zk connection state changed new state=LOST, isConnected=false
+2022-10-28 18:01:18.927 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:01:18.928 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:01:19.022 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:04:25.089 - zk connection state changed new state=SUSPENDED, isConnected=false
+2022-10-28 18:05:20.250 - zk connection state changed new state=RECONNECTED, isConnected=true
+2022-10-28 18:05:49.588 - init zk client, config=ZKConfig{hosts='192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181', digest='mpush', namespace='mpush', maxRetries=3, baseSleepTimeMs=3000, maxSleepMs=5000, sessionTimeout=5000, connectionTimeout=5000, watchPath='/'}
+2022-10-28 18:05:56.174 - init zk client waiting for connected...
+2022-10-28 18:05:56.274 - zk client start success, server lists is:192.168.43.51:2181,192.168.43.52:2181,192.168.43.53:2181
+2022-10-28 18:06:04.884 - register {host='169.254.80.85', port=3000, attrs={weight=1}, persistent=false} to srd success.
+2022-10-28 18:06:04.930 - register {host='169.254.80.85', port=8888, attrs=null, persistent=false} to srd success.
+2022-10-28 18:06:04.982 - register {host='10.200.5.34', port=3001, attrs=null, persistent=false} to srd success.

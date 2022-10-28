@@ -25,9 +25,9 @@ public class ClientAuthentication {
         boolean result = true;
         //校验参数
         if (StringUtils.isBlank(chatMessage.getFromUserType())
-                || !"1".equals(chatMessage.getFromUserType())
-                || !"2".equals(chatMessage.getFromUserType())
-                || !"3".equals(chatMessage.getFromUserType())
+                || (!"1".equals(chatMessage.getFromUserType())
+                    && !"2".equals(chatMessage.getFromUserType())
+                    && !"3".equals(chatMessage.getFromUserType()))
                 || StringUtils.isBlank(chatMessage.getToUserType())
                 || StringUtils.isBlank(chatMessage.getUserId())
                 || StringUtils.isBlank(chatMessage.getFromUserId())
